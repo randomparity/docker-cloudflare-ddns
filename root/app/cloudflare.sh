@@ -12,7 +12,7 @@ cloudflare() {
 getPublicIpAddress() {
   if [ "$RRTYPE" == "A" ]; then
     # try dns method first.
-    IP_ADDRESS=$(dig +short @resolver1.opendns.com myip.opendns.com A)
+    IP_ADDRESS=$(dig +short -4 @resolver1.opendns.com myip.opendns.com A)
 
     # if dns method fails, use http method
     if [ "$IP_ADDRESS" = "" ]; then
